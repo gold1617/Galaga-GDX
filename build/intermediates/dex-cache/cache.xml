@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Rishab\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.5.2\4e8961d210e6451fda0f3c4f5b6a0685d61533b9\gdx-1.5.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4e8961d210e6451fda0f3c4f5b6a0685d61533b9">
+        <dex dex="C:\Users\Rishab\Desktop\Programing\Galaga 2.0\android\build\intermediates\pre-dexed\debug\gdx-1.5.2-e1e49e0a3165f9ff5b06c085850f233422cefa87.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rishab\Desktop\Programing\Galaga 2.0\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="3f900bab6cbd19bf493ed01a1abf8b4da41874dc">
+        <dex dex="C:\Users\Rishab\Desktop\Programing\Galaga 2.0\android\build\intermediates\pre-dexed\debug\core-1.0-e128692a6e08794d7740d05b06b258f9582eb751.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rishab\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.5.2\dfef8e7b1118cc6ea70393e4f4f7ede95de8f4bd\gdx-box2d-1.5.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="dfef8e7b1118cc6ea70393e4f4f7ede95de8f4bd">
+        <dex dex="C:\Users\Rishab\Desktop\Programing\Galaga 2.0\android\build\intermediates\pre-dexed\debug\gdx-box2d-1.5.2-ef8ebf7f4cf99169e48bc0c2ab65dc94d0ff98f9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Rishab\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.5.2\51f73ee35e73a6d76fd245f83ec3f6a3316744d5\gdx-backend-android-1.5.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="51f73ee35e73a6d76fd245f83ec3f6a3316744d5">
+        <dex dex="C:\Users\Rishab\Desktop\Programing\Galaga 2.0\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.5.2-e3320464dfde63b8edccca3b57c2460280119aa4.jar" />
+    </item>
+
+</items>
