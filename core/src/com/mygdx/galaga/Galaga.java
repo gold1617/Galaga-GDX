@@ -54,6 +54,7 @@ public class Galaga extends ApplicationAdapter
 		
 		enemy = new Texture(Gdx.files.internal("enemy.jpg"));
 		enemies = new Array<Array<Rectangle>>();
+		enemies.add(new Array<Rectangle>());
 		spawnEnemies();
 		
 		Star = new Texture(Gdx.files.internal("Star.jpg"));
@@ -140,8 +141,7 @@ public class Galaga extends ApplicationAdapter
 		}
 		if(noEnemies())//advances to next level IF array of enemies is empty
 		{
-			level++;
-			spawnEnemies();
+			levelUp();
 		}
 		else if(max >= 1300 || min <= 30)//changes direction when
 			direction *= -1;			//enemies hit edge
@@ -161,8 +161,8 @@ public class Galaga extends ApplicationAdapter
 			positionStars();
 		
 		if(TimeUtils.nanosToMillis(TimeUtils.nanoTime()) - lastEnShot > shotDelay && enemies.size > 0)//random
-		{																				//enemy launches 
-			Rectangle en = enemies.random().random();				//missile after delay
+		{																						     //enemy launches 
+			Rectangle en = enemies.random().random();												//missile after delay
 			enMissiles.add(new Rectangle(en.x + 15,en.y,8,24));
 			lastEnShot = TimeUtils.nanosToMillis(TimeUtils.nanoTime());
 		}
@@ -201,7 +201,6 @@ public class Galaga extends ApplicationAdapter
 	public void spawnEnemies()
 	{
 		int w = 80, h = 700;
-		enemies.add(new Array<Rectangle>());
 		for(Array<Rectangle> row: enemies)
 		{
 			for(int i = 0; i < 10; i++)
@@ -256,5 +255,15 @@ public class Galaga extends ApplicationAdapter
 				return false;
 		}
 		return true;
+	}
+	
+	public void levelUp()
+	{
+		level++;
+		if(level % 5 == 0)
+			enemies.add(new Array<Rectangle>());
+		else
+			shotDelay -= 50;
+		spawnEnemies();
 	}
 }
