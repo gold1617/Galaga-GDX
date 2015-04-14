@@ -162,9 +162,12 @@ public class Galaga extends ApplicationAdapter
 		
 		if(TimeUtils.nanosToMillis(TimeUtils.nanoTime()) - lastEnShot > shotDelay && enemies.size > 0)//random
 		{																						     //enemy launches 
-			Rectangle en = enemies.random().random();												//missile after delay
-			enMissiles.add(new Rectangle(en.x + 15,en.y,8,24));
-			lastEnShot = TimeUtils.nanosToMillis(TimeUtils.nanoTime());
+			Rectangle en = enemies.random().random();//missile after delay
+			if(en != null)
+			{
+				enMissiles.add(new Rectangle(en.x + 15,en.y,8,24));
+				lastEnShot = TimeUtils.nanosToMillis(TimeUtils.nanoTime());
+			}
 		}
 		if(Gdx.input.isKeyPressed(Keys.SPACE) && TimeUtils.nanoTime() - lastShot > 125000000)//launch missile
 		{																					//when space pressed
