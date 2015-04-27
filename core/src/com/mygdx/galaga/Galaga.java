@@ -19,7 +19,8 @@ import com.badlogic.gdx.utils.TimeUtils;
 
 public class Galaga extends ApplicationAdapter 
 {
-	
+	private final float RIGHTMARGIN = 116;
+	private final float LEFTMARGIN = 100;
 	private SpriteBatch batch;
 	private Texture ship, enemy,Star,mm,em;
 	private BitmapFont font;
@@ -96,8 +97,8 @@ public class Galaga extends ApplicationAdapter
 			batch.draw(mm,m.x,m.y);
 		for(Rectangle r: enMissiles)
 			batch.draw(em,r.x,r.y);
-		font.draw(batch,"Score:" + score, 10, 80);
-		font.draw(batch,"Level: " + level, 10, 100);
+		font.draw(batch,"Score:" + score, 10, 100);
+		font.draw(batch,"Level: " + level, 10, 120);
 		batch.draw(ship,sh.x,sh.y);		
 		batch.end();
 		
@@ -143,8 +144,10 @@ public class Galaga extends ApplicationAdapter
 		{
 			levelUp();
 		}
-		else if(max >= 1300 || min <= 30)//changes direction when
-			direction *= -1;			//enemies hit edge
+		else if(direction == 1 && max >= 1260)//changes direction when
+			direction = -1;			//enemies hit edge
+		else if(direction == -1 && min <= 100)
+			direction = 1;
 		
 		
 		for(Array<Rectangle> row: enemies)
@@ -174,21 +177,21 @@ public class Galaga extends ApplicationAdapter
 			spawnMyMissile();
 			lastShot = TimeUtils.nanoTime();
 		}
-		if(Gdx.input.isTouched())
+	/*	if(Gdx.input.isTouched())
 		{
 			Vector3 touchpos = new Vector3();
 			touchpos.set(Gdx.input.getX(),Gdx.input.getY(),0);
 			camera.unproject(touchpos);
 			sh.x = touchpos.x - (64/2);
-		}
+		}*/
 		if(Gdx.input.isKeyPressed(Keys.LEFT))
 			sh.x -= 200 * Gdx.graphics.getDeltaTime();
 		if(Gdx.input.isKeyPressed(Keys.RIGHT))
 			sh.x += 200 * Gdx.graphics.getDeltaTime();
-		if(sh.x > 1330)
-			sh.x = 1330;
-		if(sh.x < 20)
-			sh.x = 20;		
+		if(sh.x > 1366 - RIGHTMARGIN)//Keeps player from going too far right
+			sh.x = 1366-RIGHTMARGIN;
+		if(sh.x < LEFTMARGIN)//Keeps player from going too far left
+			sh.x = LEFTMARGIN;		
 	}
 	
 	public void positionStars()
