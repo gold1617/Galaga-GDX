@@ -129,7 +129,7 @@ public class Galaga extends ApplicationAdapter
 			else
 				mis.y -= 300 * Gdx.graphics.getDeltaTime();
 		}
-		float min = 50,max = 0;
+		float min = 1366,max = 0;
 		for(Array<Rectangle> row: enemies)
 		{
 			if(row.size > 0)
@@ -144,9 +144,9 @@ public class Galaga extends ApplicationAdapter
 		{
 			levelUp();
 		}
-		else if(direction == 1 && max >= 1260)//changes direction when
+		else if(direction == 1 && max >= 1366 - RIGHTMARGIN)//changes direction when
 			direction = -1;			//enemies hit edge
-		else if(direction == -1 && min <= 100)
+		else if(direction == -1 && min <= LEFTMARGIN)
 			direction = 1;
 		
 		
@@ -206,7 +206,8 @@ public class Galaga extends ApplicationAdapter
 	
 	public void spawnEnemies()
 	{
-		int w = 80, h = 700;
+		int w = (int) (LEFTMARGIN) + 80;
+		int h = 700;
 		for(Array<Rectangle> row: enemies)
 		{
 			for(int i = 0; i < 10; i++)
@@ -217,7 +218,7 @@ public class Galaga extends ApplicationAdapter
 				en.width = 40;
 				en.height = 32;
 				row.add(en);
-				w += 125; 
+				w += 105; 
         	}
 			h -= 30;
 			w = 80;
