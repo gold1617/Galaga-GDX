@@ -43,7 +43,7 @@ public class Galaga extends ApplicationAdapter
 		ship = new Texture(Gdx.files.internal("ship.jpg"));
 		sh = new Rectangle();
 		sh.x = 1366/2;
-		sh.y = 20;
+		sh.y = 20;	
 		sh.width = 30;
 		sh.height = 36;
 		
@@ -79,7 +79,7 @@ public class Galaga extends ApplicationAdapter
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
